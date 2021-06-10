@@ -15,13 +15,10 @@ import java.util.Scanner;
 @Slf4j
 public class FlightRepositoryImpl implements FlightsRepository{
 
-    @Value("flight.csv")
-    public Resource flights;
-
     @Override
     public Response findResponseById(int id) {
         try {
-            File file = flights.getFile();
+            File file = new ClassPathResource(File.separator + "flights.csv").getFile();
             Scanner scanner = new Scanner(file);
             String curLine;
             while ((curLine = scanner.nextLine()) != null){
