@@ -1,7 +1,10 @@
 package ivan.projects.aviasales.repository;
 
 import ivan.projects.aviasales.domain.Response;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ResourceUtils;
 
@@ -9,12 +12,16 @@ import java.io.File;
 import java.util.Scanner;
 
 @Repository
+@Slf4j
 public class FlightRepositoryImpl implements FlightsRepository{
+
+    @Value("flight.csv")
+    public Resource flights;
 
     @Override
     public Response findResponseById(int id) {
         try {
-            File file = new ClassPathResource("flights.csv").getFile();
+            File file = flights.getFile();
             Scanner scanner = new Scanner(file);
             String curLine;
             while ((curLine = scanner.nextLine()) != null){
@@ -28,8 +35,8 @@ public class FlightRepositoryImpl implements FlightsRepository{
                 }
             }
         }
-        catch (Exception ignored){
-
+        catch (Exception exception){
+            log.error(exception.getMessage());
         }
         return null;
     }
