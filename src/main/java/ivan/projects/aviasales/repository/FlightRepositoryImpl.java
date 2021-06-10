@@ -1,6 +1,7 @@
 package ivan.projects.aviasales.repository;
 
 import ivan.projects.aviasales.domain.Response;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ResourceUtils;
 
@@ -13,7 +14,7 @@ public class FlightRepositoryImpl implements FlightsRepository{
     @Override
     public Response findResponseById(int id) {
         try {
-            File file = ResourceUtils.getFile("classpath:flights.csv");
+            File file = new ClassPathResource("flights.csv").getFile();
             Scanner scanner = new Scanner(file);
             String curLine;
             while ((curLine = scanner.nextLine()) != null){
