@@ -19,4 +19,4 @@
 ```
 Также можно протестировать через сваггер. Для этого нужно перейти  https://aviasales-intership.herokuapp.com/swagger-ui.html, затем нажать на MainController, затем выбрать из списка точку входа, которую мы хотим протестировать (в данном случае, по тз у нас одна точка входа), затем нужно нажать кнопочку try it out, заполнить все обязательные поля (в нашем случае id) и в конце нажать execute. Ниже я прикрепляю видео инструкцию. 
 
-![Проверка через сваггер](https://github.com/IvanLotoff/aviasalesMock/blob/master/ezgif-7-c7fe1e095f6b.gif?raw=true)
+![Проверка через сваггер](https://github.com/IvanLotoff/aviasalesMock/blob/master/ezgif-7-793b72f20b62.gif?raw=true)
